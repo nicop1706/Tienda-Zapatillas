@@ -1,0 +1,9 @@
+PORTADA DEL LOGIN
+=================
+Normal: inicia sesión como administrador, abre el menú de tu usuario (arriba a la derecha)
+y pulsa "Portada del login…". Se guarda aquí sola como portada.webp.
+
+Manual: copia aquí una imagen llamada portada.jpg, portada.png o portada.webp.
+Recomendado: foto de fondo claro (crema/blanco) con espacio libre arriba a la izquierda para el título y las
+zapatillas hacia abajo; proporción 7:6 o 4:3 (ej. 1600 x 1385 px), menos de 1 MB.
+Si no hay imagen aquí, el login muestra la ilustración por defecto.
