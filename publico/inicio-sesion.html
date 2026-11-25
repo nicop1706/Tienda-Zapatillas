@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión · FootWear Admin</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login">
+      <section class="left" aria-hidden="false">
+        <div class="deco-arco" aria-hidden="true"></div><div class="deco-puntos" aria-hidden="true"></div>
+        <div class="brand" id="logoL"></div>
+        <h1>Tu tienda de zapatillas<br>en un solo lugar</h1>
+        <p>Analiza, gestiona y mejora tus ventas con nuestra plataforma de inteligencia de datos.</p>
+        <div id="heroShoe"></div>
+        <div class="feats" id="feats"></div>
+      </section>
+      <section class="right">
+        <h2>Bienvenido</h2>
+        <p class="sub">Inicia sesión para acceder a tu cuenta.</p>
+        <form id="form" novalidate>
+          <div id="err" class="errbox" role="alert" hidden></div>
+          <div class="field"><label for="email">Correo electrónico</label>
+            <div class="inputicon" id="wrapEmail"><input class="input" id="email" type="email" autocomplete="username" placeholder="Ingresa tu correo electrónico" required></div></div>
+          <div class="field"><label for="pass">Contraseña</label>
+            <div class="inputicon" id="wrapPass"><input class="input" id="pass" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required>
+              <button class="eye" type="button" id="eye" aria-label="Mostrar contraseña"></button></div></div>
+          <button class="btn dark block" id="ok" type="submit"></button>
+        </form>
+        <p class="help">¿No tienes acceso o olvidaste tu contraseña? Solicítalo al administrador del sistema.</p>
+      </section>
+    </div>
+  </div>
+  <script type="module" src="/js/inicioSesion.js"></script>
+</body>
+</html>
