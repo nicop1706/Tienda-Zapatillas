@@ -1,0 +1,55 @@
+# Levanta MySQL 8 + la aplicación.   Uso:  docker compose up --build
+# Entrada: http://localhost:3000  ·  admin@footwear.local / Admin1234!  (o los valores de tu .env)
+# Las credenciales se leen del archivo .env (o usan los valores por defecto de abajo).
+# En el primer arranque MySQL ejecuta base_de_datos/esquema.sql y base_de_datos/datos-ejemplo.sql (datos ficticios).
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_cambia_esta_clave}
+      MYSQL_DATABASE: ${DB_NAME:-tienda_zapatillas}
+      MYSQL_USER: ${DB_USER:-tienda_app}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-cambia_esta_clave}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./base_de_datos/esquema.sql:/docker-entrypoint-initdb.d/01-esquema.sql:ro
+      - ./base_de_datos/datos-ejemplo.sql:/docker-entrypoint-initdb.d/02-datos-ejemplo.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-tienda_zapatillas}
+      DB_USER: ${DB_USER:-tienda_app}
+      DB_PASSWORD: ${DB_PASSWORD:-cambia_esta_clave}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@footwear.local}
+      # Contraseña inicial del administrador (solo se usa si la tabla usuarios está vacía). Cámbiala al entrar.
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin1234!}
+    ports:
+      - "${PORT:-3000}:3000"
+    volumes:
+      - modelos_data:/app/modelos
+      # Fotos de productos subidas desde la pantalla Productos (se conservan aunque se reconstruya la imagen)
+      - fotos_data:/app/publico/imagenes/productos
+      # Portada del login subida desde el menú de usuario
+      - portada_data:/app/publico/imagenes/portada
+
+volumes:
+  mysql_data:
+  modelos_data:
+  fotos_data:
+  portada_data:
