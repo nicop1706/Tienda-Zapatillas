@@ -1,0 +1,20 @@
+FOTOS DE LOS PRODUCTOS
+======================
+LO NORMAL: en la pantalla Productos, abre un producto y pulsa "Subir foto". Se guarda aquí sola.
+
+OPCIÓN MANUAL (sin Docker): copia aquí un archivo con el nombre del SKU del producto o con su ID:
+
+    AND-RUN-001.jpg       (por SKU)
+    3.png                 (por ID)
+
+- Formatos: .jpg, .jpeg, .png o .webp (recomendado 800 x 600 px, menos de 500 KB).
+- Si un producto no tiene foto, se muestra la ilustración por defecto.
+- Después de copiar archivos a mano, recarga la página con Ctrl + F5.
+
+SKUs de los productos de ejemplo (nombre del archivo = SKU + extensión):
+    AND-RUN-001  Andes Runner Pro            KUN-BAS-001  Kuntur Basket Alto
+    AND-RUN-002  Andes Runner Lite           KUN-FUT-001  Kuntur Futsal Turbo
+    INT-URB-001  Inti Urban Classic          AND-CAS-001  Andes Casual Lona
+    INT-URB-002  Inti Urban Street           INT-SKT-001  Inti Skate Flat
+    PAC-TRK-001  Pacha Trek Montaña          PAC-NIN-001  Pacha Kids Aventura
+    PAC-TRK-002  Pacha Trail Ligera          KUN-ELE-001  Kuntur Elite Edición
