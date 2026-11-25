@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FootWear Admin</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="app">
+    <header class="topnav" id="topnav">
+      <a class="brand" href="#/dashboard" id="brand"></a>
+      <button class="iconbtn menubtn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"></button>
+      <nav class="navlinks" id="navlinks" aria-label="Principal"></nav>
+      <div class="navright">
+        <button class="iconbtn" id="bellBtn" aria-label="Alertas de stock" aria-haspopup="true"></button>
+        <button class="userbtn" id="userBtn" aria-haspopup="true"></button>
+      </div>
+      <div class="menu" id="menuAlertas" hidden></div>
+      <div class="menu" id="menuUsuario" hidden></div>
+    </header>
+    <main id="vista" tabindex="-1" aria-live="polite"></main>
+  </div>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <dialog id="dlgConfirmar" aria-labelledby="confTitulo">
+    <form method="dialog">
+      <h2 id="confTitulo"></h2><p id="confTexto"></p>
+      <div class="foot"><button class="btn" id="confNo" value="cancel">Cancelar</button><button class="btn dark" id="confSi" value="ok"></button></div>
+    </form>
+  </dialog>
+  <dialog id="dlgGeneral" aria-labelledby="dlgGenTitulo"></dialog>
+
+  <script src="/librerias/chart.umd.js"></script>
+  <script type="module" src="/js/aplicacion.js"></script>
+</body>
+</html>
